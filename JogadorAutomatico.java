@@ -134,10 +134,36 @@ public class JogadorAutomatico implements Jogador, Cloneable
                  this.tabDoJogo.setMarcaNaPosicao(this.marca, 2,2);
             else
             // tentando ganhar na diagonal principal
-            if ... else if ... else if ...
+            if (!this.tabDoJogo.haMarcaNaPosicao(0,0) &&
+                 this.tabDoJogo.haMarcaNaPosicao(1,1) && this.tabDoJogo.getMarcaNaPosicao(1,1).equals(this.marca) &&
+                 this.tabDoJogo.haMarcaNaPosicao(2,2) && this.tabDoJogo.getMarcaNaPosicao(2,2).equals(this.marca))
+                 this.tabDoJogo.setMarcaNaPosicao(this.marca, 0,0);
+            else
+            if ( this.tabDoJogo.haMarcaNaPosicao(0,0) && this.tabDoJogo.getMarcaNaPosicao(0,0).equals(this.marca) &&
+                !this.tabDoJogo.haMarcaNaPosicao(1,1) &&
+                 this.tabDoJogo.haMarcaNaPosicao(2,2) && this.tabDoJogo.getMarcaNaPosicao(2,2).equals(this.marca))
+                 this.tabDoJogo.setMarcaNaPosicao(this.marca, 1,1);
+            else
+            if ( this.tabDoJogo.haMarcaNaPosicao(0,0) && this.tabDoJogo.getMarcaNaPosicao(0,0).equals(this.marca) &&
+                 this.tabDoJogo.haMarcaNaPosicao(1,1) && this.tabDoJogo.getMarcaNaPosicao(1,1).equals(this.marca) &&
+                !this.tabDoJogo.haMarcaNaPosicao(2,2))
+                 this.tabDoJogo.setMarcaNaPosicao(this.marca, 2,2);
             else
             // tentando ganhar na diagonal secundaria
-            if ... else if ... else if ...
+            if (!this.tabDoJogo.haMarcaNaPosicao(0,2) &&
+                 this.tabDoJogo.haMarcaNaPosicao(1,1) && this.tabDoJogo.getMarcaNaPosicao(1,1).equals(this.marca) &&
+                 this.tabDoJogo.haMarcaNaPosicao(2,0) && this.tabDoJogo.getMarcaNaPosicao(2,0).equals(this.marca))
+                 this.tabDoJogo.setMarcaNaPosicao(this.marca, 0,2);
+            else
+            if ( this.tabDoJogo.haMarcaNaPosicao(0,2) && this.tabDoJogo.getMarcaNaPosicao(0,2).equals(this.marca) &&
+                !this.tabDoJogo.haMarcaNaPosicao(1,1) &&
+                 this.tabDoJogo.haMarcaNaPosicao(2,0) && this.tabDoJogo.getMarcaNaPosicao(2,0).equals(this.marca))
+                 this.tabDoJogo.setMarcaNaPosicao(this.marca, 1,1);
+            else
+            if ( this.tabDoJogo.haMarcaNaPosicao(0,2) && this.tabDoJogo.getMarcaNaPosicao(0,2).equals(this.marca) &&
+                 this.tabDoJogo.haMarcaNaPosicao(1,1) && this.tabDoJogo.getMarcaNaPosicao(1,1).equals(this.marca) &&
+                !this.tabDoJogo.haMarcaNaPosicao(2,0))
+                 this.tabDoJogo.setMarcaNaPosicao(this.marca, 2,0);
             else
             // tentando atrapalhar vitoria na linha 0
             if ... else if ... else if ...
@@ -203,7 +229,6 @@ public class JogadorAutomatico implements Jogador, Cloneable
     @Override
     public boolean equals (Object obj)
     {
-        // faça
         if(obj==this) return true;
         if(obj==null) return false;
         if(obj.getClass()!=this.getClass()) return false;
@@ -226,13 +251,19 @@ public class JogadorAutomatico implements Jogador, Cloneable
     // construtor de cópia
     public JogadorAutomatico (JogadorAutomatico modelo) throws Exception
     {
-        // faça
-        if
+        if (modelo==null) throw new Exception ("Modelo inválido");
+        this.marca=modelo.marca;
+        this.tabDoJogo=modelo.tabDoJogo;
     }
 
     @Override
     public Object clone ()
     {
-        // faça
+        JogadorAutomatico retorno = null;
+        try{
+            retorno = new JogadorAutomatico(this);
+        }catch(Exception e)
+        {}
+        return retorno;
     }
 }
