@@ -20,19 +20,23 @@ public class JogadorHumano implements Jogador
         // intanciando marca
         boolean respValida = false;
         do{
-            System.out.println("Escolha seu marcador (X/O): ");
-            char resp  = Teclado.getUmChar();
+            try{
+                System.out.println("Escolha seu marcador (X/O): ");
+                char resp  = Teclado.getUmChar();
 
-            if(resp == 'X' || resp == 'x'){
-                marca = new Marca('X');
-                respValida = true;
-            }
-            else if(resp == 'O' || resp == 'o'){
-                marca = new Marca('O');
-                respValida = true;
-            }
-            else{
-                System.out.println("Marcador Invalido! Tente novamente.");
+                if(resp == 'X' || resp == 'x'){
+                    marca = new Marca('X');
+                    respValida = true;
+                }
+                else if(resp == 'O' || resp == 'o'){
+                    marca = new Marca('O');
+                    respValida = true;
+                }
+                else{
+                    System.out.println("Marcador Invalido! Tente novamente.");
+                }
+            }catch(Exception e){
+                System.out.println("Resposta Invalida, digite novamente.");
             }
         } while(!respValida);
     }
@@ -58,29 +62,44 @@ public class JogadorHumano implements Jogador
         // jogar, permitindo digitacao e chamando
         // os métodos apropriados de tabDoJogo
         boolean jogadaValida = false;
-
         do{
-            System.out.printlh("Digite a Coordenada daa linha (Horizontal): ");
-            byte resp1 = Teclado.getUmByte();
+            try{
+                System.out.println("Digite a linha (0 a 2): ");
+                byte linha = Teclado.getUmByte();
 
-            if(resp1 )
+                System.out.println("Digite a coluna (0 a 2)");
+                byte coluna = Teclado.getUmByte();
 
-        } while(!jogadaValida)
+                //Validacao:
+                if(linha > 2 || linha < 0 || coluna > 2 || coluna < 0){
+                    System.out.println("Coordenadas fora dos limites do tabuleiro. Tente novamente.");
+                }
+                else if(this.tabDoJogo.haMarcaNaPosicao(linha, coluna)){
+                    System.out.println("Esta posição já está ocupada. Escolha outra.");
+                }
+                else{
+                    this.tabDoJogo.setMarcaNaPosicao(this.marca, linha, coluna);
+                    jogadaValida = true;
+                }
+            }catch(Exception e){
+                System.out.println("Entrada inválida. Digite apenas números inteiros.");
+            }
+        } while(!jogadaValida);
     }
 
     public void vcGanhou ()
     {
-        // mostra mensagem indicando vitoria
+        System.out.println("Parabens, temos um vencedor!");
     }
 
     public void vcPerdeu ()
     {
-        // mostra mensagem indicando derrota
+        System.out.println("Vish, voce perdeu!");
     }
 
     public void deuVelha ()
     {
-        // mostra mensagem indicando empate
+        System.out.println("Puts, deu Velha!");
     }
 
     public boolean querMaisUmaPartida ()
@@ -88,5 +107,26 @@ public class JogadorHumano implements Jogador
         // perguntar se deseja jogar de novo
         // permitindo digitacao e retornando
         // true ou false, conforme a resposta
+        char resp = ' ';
+        boolean respValida = false;
+        do { 
+            try{
+                System.out.println("Deseja jogar outra partida? (S/N)");
+                resp = Teclado.getUmChar();
+
+                if(resp == 'S' || resp == 's' || resp == 'N' || resp == 'n'){
+                    respValida = true;
+                }
+                else{
+                    System.out.println("Resposta invalida, responda apenas com S ou N");
+                }
+            }
+            catch(Exception e){
+                System.out.println("Entrada inválida.");
+            }
+
+        } while (!respValida);
+
+        return (resp == 'S' || resp == 's');
     }
 }
