@@ -7,6 +7,8 @@ public class AnalistaSituacional
     public AnalistaSituacional (Tabuleiro tab) throws Exception
     {
         // colocar tab em tabDoJogo
+        if(tab==null) throw new Exception("Tabuleiro nulo");
+        this.tabDoJogo=tab;
     }
 
     public Marca getMarcaDoVencedor ()
@@ -14,6 +16,8 @@ public class AnalistaSituacional
         // descobrir se ha um vencedor e retornar
         // a marca dele; retornara null, quando
         // nao houver vencedor
+        if 
+        return Marca;
     }
 
     private boolean tabuleiroCheio ()
@@ -22,6 +26,8 @@ public class AnalistaSituacional
         // tabuleiro estao preenchidas (!=null)
         // retornando true em caso afirmativo,
         // ou false em caso negativo
+        return false;
+        
     }
 
     public boolean fimDeJogo ()
@@ -31,6 +37,9 @@ public class AnalistaSituacional
         // se tabuleiroCheio == true,
         // retorna true
         // caso contrario, retorna false
+        if(getMarcaDoVencedor!=null) return true;
+        if(tabuleiroCheio==true) return true;
+        return false;
     }
 
     @Override
