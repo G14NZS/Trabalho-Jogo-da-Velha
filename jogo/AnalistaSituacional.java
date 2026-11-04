@@ -11,7 +11,7 @@ public class AnalistaSituacional
         this.tabDoJogo=tab;
     }
 
-    private boolean tresIguais (int l1, int c1, int l2, int c2, int l3, int c3){
+    private boolean tresIguais (int l1, int c1, int l2, int c2, int l3, int c3) throws Exception {
     if (!this.tabDoJogo.haMarcaNaPosicao(l1,c1) ||
         !this.tabDoJogo.haMarcaNaPosicao(l2,c2) ||
         !this.tabDoJogo.haMarcaNaPosicao(l3,c3))
@@ -25,7 +25,7 @@ public class AnalistaSituacional
     }
 
 
-    public Marca getMarcaDoVencedor ()
+    public Marca getMarcaDoVencedor () throws Exception
     {
         // descobrir se ha um vencedor e retornar
         // a marca dele; retornara null, quando
@@ -41,7 +41,7 @@ public class AnalistaSituacional
     	return null;
     }
 
-    private boolean tabuleiroCheio ()
+    private boolean tabuleiroCheio () throws Exception
     {
         // verificar se todas as posicoes do
         // tabuleiro estao preenchidas (!=null)
@@ -52,7 +52,7 @@ public class AnalistaSituacional
         && this.tabDoJogo.haMarcaNaPosicao(2,0) && this.tabDoJogo.haMarcaNaPosicao(2,1) && this.tabDoJogo.haMarcaNaPosicao(2,2); 
     }
 
-    public boolean fimDeJogo ()
+    public boolean fimDeJogo () throws Exception
     {
         // se getMarcaDoVencedor != null,
         // retorna true
