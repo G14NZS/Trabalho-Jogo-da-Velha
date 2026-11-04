@@ -26,7 +26,10 @@ public class AnalistaSituacional
         // tabuleiro estao preenchidas (!=null)
         // retornando true em caso afirmativo,
         // ou false em caso negativo
-        return false;
+        if (this.tabDoJogo.haMarcaNaPosicao(0,0) && this.tabDoJogo.haMarcaNaPosicao(0,1) && this.tabDoJogo.haMarcaNaPosicao(0,2) 
+        && this.tabDoJogo.haMarcaNaPosicao(1,0) && this.tabDoJogo.haMarcaNaPosicao(1,1) && this.tabDoJogo.haMarcaNaPosicao(2,1) 
+        && this.tabDoJogo.haMarcaNaPosicao(2,0) && this.tabDoJogo.haMarcaNaPosicao(2,1) && this.tabDoJogo.haMarcaNaPosicao(2,2)) return true;
+        return false; 
         
     }
 
