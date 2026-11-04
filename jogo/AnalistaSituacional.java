@@ -12,22 +12,16 @@ public class AnalistaSituacional
     }
 
     private boolean tresIguais (int l1, int c1, int l2, int c2, int l3, int c3){
-    	1. Parênteses e ponto e vírgula (erro de compilação).
-    	Conte os parênteses de cada if: falta fechar um em cada um. E depois de return false e return true falta o ;. Confira 	também que o último if fecha todos os parênteses que abre.
-    
-    	2. A condição do primeiro if está invertida.
-    	Do jeito que está, ele retorna false quando há marca, que é o contrário do que queremos. Lembre do passo 1: se não há 	marca na posição, retorna false. Qual operador em Java inverte um boolean?
-    
-    	3. haMarcaNaPosicao não serve para comparar.
-    	Esse método responde “tem marca aqui?” (true ou false). Ele não devolve a marca. Para comparar as marcas, você precisa 	do método que devolve a marca da posição, o getMarcaNaPosicao. Pense: comparar o boolean de uma posição com o boolean 	de outra daria true sempre que as duas estivessem preenchidas, mesmo com X numa e O na outra. Só que boolean primitivo 	nem tem .equals, então nem compilaria.
-    
-    	4. Falta um return no final.
-    	Se o último if não for verdadeiro, o método chega ao fim sem devolver nada, e o Java não aceita isso. O que o método 	deve devolver nesse caso? (Dica: depois de corrigir, você pode até simplificar, já que a própria condição do último if 	é um boolean, como aconteceu no tabuleiroCheio.)
-    
-    	if(this.tabDoJogo.haMarcaNaPosicao(l1, c1) return true;
-    	if(this.tabDoJogo.haMarcaNaPosicao(l1,c1).equals(this.tabDoJogo.haMarcaNaPosicao(l2,c2)) && 
-    	this.tabDoJogo.haMarcaNaPosicao(l1,c1).equals(this.tabDoJogo.haMarcaNaPosicao(l3,c3)) return true;
+    if (!this.tabDoJogo.haMarcaNaPosicao(l1,c1) ||
+        !this.tabDoJogo.haMarcaNaPosicao(l2,c2) ||
+        !this.tabDoJogo.haMarcaNaPosicao(l3,c3))
         return false;
+    if (this.tabDoJogo.getMarcaNaPosicao(l1,c1).equals(
+        this.tabDoJogo.getMarcaNaPosicao(l2,c2)) &&
+        this.tabDoJogo.getMarcaNaPosicao(l1,c1).equals(
+        this.tabDoJogo.getMarcaNaPosicao(l3,c3)))
+        return true;
+    return false;
     }
 
 
