@@ -47,6 +47,10 @@ public class Velha
                 do
                 {
                     jogador.facaSuaJogada();
+                    System.out.println("\n");
+                    System.out.println(tabDoJogo.toString());
+                    System.out.println("\n\n");
+
 
                     if (jogador==jogadorH)
                         jogador=jogadorA;
