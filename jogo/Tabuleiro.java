@@ -54,11 +54,22 @@ public class Tabuleiro implements Cloneable
     @Override
     public String toString ()
     {
-        return matriz[0][0] + " | " + matriz [0][1] + " | " + matriz[0][2] + "\n" +
-                                  "-----------\n" +
-               matriz[1][0] + " | " + matriz [1][1] + " | " + matriz[1][2] + "\n" +
-                                  "-----------\n" +
-               matriz[2][0] + " | " + matriz [2][1] + " | " + matriz[2][2];
+        // return matriz[0][0] + " | " + matriz [0][1] + " | " + matriz[0][2] + "\n" +
+        //                           "-----------\n" +
+        //        matriz[1][0] + " | " + matriz [1][1] + " | " + matriz[1][2] + "\n" +
+        //                           "-----------\n" +
+        //        matriz[2][0] + " | " + matriz [2][1] + " | " + matriz[2][2];
+        return (matriz[0][0] == null ? " " : matriz[0][0]) + " | " +
+           (matriz[0][1] == null ? " " : matriz[0][1]) + " | " +
+           (matriz[0][2] == null ? " " : matriz[0][2]) + "\n" +
+           "-----------\n" +
+           (matriz[1][0] == null ? " " : matriz[1][0]) + " | " +
+           (matriz[1][1] == null ? " " : matriz[1][1]) + " | " +
+           (matriz[1][2] == null ? " " : matriz[1][2]) + "\n" +
+           "-----------\n" +
+           (matriz[2][0] == null ? " " : matriz[2][0]) + " | " +
+           (matriz[2][1] == null ? " " : matriz[2][1]) + " | " +
+           (matriz[2][2] == null ? " " : matriz[2][2]);
     }
 
     @Override
