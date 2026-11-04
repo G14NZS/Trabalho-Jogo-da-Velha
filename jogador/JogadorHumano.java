@@ -1,4 +1,4 @@
-﻿package jogador;
+package jogador;
 
 import uteis.Teclado;
 import jogo.Marca;
