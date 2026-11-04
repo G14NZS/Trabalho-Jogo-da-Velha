@@ -298,7 +298,7 @@ public class JogadorAutomatico implements Jogador, Cloneable
                 this.tabDoJogo.getMarcaNaPosicao(0,0).equals(this.marca) &&
                 !this.tabDoJogo.haMarcaNaPosicao(0,1) &&
                 !this.tabDoJogo.haMarcaNaPosicao(0,2))
-                this.tabDoJogo.setMarcaNaPosicao(this.marca, 0,1);
+                this.tabDoJogo.setMarcaNaPosicao(this.marca, 0,2);
             else
             if (!this.tabDoJogo.haMarcaNaPosicao(0,0) &&
                 this.tabDoJogo.haMarcaNaPosicao(0,1) &&
@@ -310,7 +310,7 @@ public class JogadorAutomatico implements Jogador, Cloneable
                 !this.tabDoJogo.haMarcaNaPosicao(0,1) &&
                 this.tabDoJogo.haMarcaNaPosicao(0,2) &&
                 this.tabDoJogo.getMarcaNaPosicao(0,2).equals(this.marca))
-                this.tabDoJogo.setMarcaNaPosicao(this.marca, 0,1);
+                this.tabDoJogo.setMarcaNaPosicao(this.marca, 0,0);
             else
             // tentando jogada de futuro (há 1 marca do jogador e mais nada; vamos lá e plantamos outra marca) na linha 1
             if (this.tabDoJogo.haMarcaNaPosicao(1,0) &&
